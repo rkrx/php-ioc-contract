@@ -9,5 +9,8 @@
 		"psr-4": {
 			"Ioc\\": "src/"
 		}
+	},
+	"suggest": {
+		"rkr/php-di-ioc-adapter": "An adapter for PHP-DI 4.3"
 	}
 }
