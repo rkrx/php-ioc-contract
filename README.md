@@ -19,36 +19,36 @@ This project provides a documentation for the api and the behavior of three diff
 Lets say you wan't to build a rule-based service-dispatcher (or an http-router like silex), that invoke registered closures only if a certain condition is met:
 
 ```PHP
-$sserviceDispatcher = new ServiceDispatcher();
-$sserviceDispatcher->register('service-name', 3600 /* timeout sek. */, function () {
+$serviceDispatcher = new ServiceDispatcher();
+$serviceDispatcher->register('service-name', 3600 /* timeout sek. */, function () {
 	/* do something every hour */
 });
-$sserviceDispatcher->run();
+$serviceDispatcher->run();
 ```
 
 It would be fun, if I already had the domain-objects I need to work with. This would look like this:
 
 ```PHP
-$sserviceDispatcher = new ServiceDispatcher();
-$sserviceDispatcher->register('service-name', 3600 /* timeout sek. */, function (BusinessObject $businessObject) {
+$serviceDispatcher = new ServiceDispatcher();
+$serviceDispatcher->register('service-name', 3600 /* timeout sek. */, function (BusinessObject $businessObject) {
 	/* do something every hour */
 	$businessObject->doSomething();
 });
-$sserviceDispatcher->run();
+$serviceDispatcher->run();
 ```
 
-`$sserviceDispatcher` should not be aware of a `BusinessObject` directly. But the `ServiceDispatcher` may know of an generic way to call a `callable` (like a `closure`) and resolve those parameters by a component outside of `ServiceDispatcher`'s scope. How this is archived is not a concern of the `ServiceDispatcher`. It just happens somehow.
+`$serviceDispatcher` should not be aware of a `BusinessObject` directly. But the `ServiceDispatcher` may know of an generic way to call a `callable` (like a `closure`) and resolve those parameters by a component outside of `ServiceDispatcher`'s scope. How this is archived is not a concern of the `ServiceDispatcher`. It just happens somehow.
 
 The goal could be archived with an Dependency-Injection-Container. There are different ioc-containers out there with quite different interfaces *(my current favorite is [PHP-DI](http://php-di.org/))*. So we need a common interface to pass an instance around which is aware of how to instantiate our domain-objects so that we could directly use them:
  
 ```PHP
 $container = new Container(require 'config/di-cfg.php');
-$sserviceDispatcher = new ServiceDispatcher($container);
-$sserviceDispatcher->register('service-name', 3600 /* timeout sek. */, function (BusinessObject $businessObject) {
+$serviceDispatcher = new ServiceDispatcher($container);
+$serviceDispatcher->register('service-name', 3600 /* timeout sek. */, function (BusinessObject $businessObject) {
 	/* do something every hour */
 	$businessObject->doSomething();
 });
-$sserviceDispatcher->run();
+$serviceDispatcher->run();
 ```
 
 Now the run-method in the `ServiceDispatcher`-implementation could simply look like this:
