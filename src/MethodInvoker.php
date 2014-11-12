@@ -2,6 +2,7 @@
 namespace Ioc;
 
 use Ioc\Exceptions\DefinitionNotFoundException;
+use Ioc\Exceptions\Exceptions\ParameterMissingException;
 
 interface MethodInvoker {
 	/**
@@ -14,6 +15,7 @@ interface MethodInvoker {
 	 * @param callable $callable
 	 * @param array $arguments Must be an array were the keys match to the Variable-Names of the __construct'ors parameters.
 	 * @throws DefinitionNotFoundException
+	 * @throws ParameterMissingException
 	 * @return mixed
 	 */
 	public function invoke($callable, array $arguments = array());

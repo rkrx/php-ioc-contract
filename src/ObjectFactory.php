@@ -2,6 +2,7 @@
 namespace Ioc;
 
 use Ioc\Exceptions\DefinitionNotFoundException;
+use Ioc\Exceptions\Exceptions\ParameterMissingException;
 
 interface ObjectFactory {
 	/**
@@ -12,6 +13,7 @@ interface ObjectFactory {
 	 * @param string $className Must be an fully qualified class-name.
 	 * @param array $arguments Must be an array were the keys match to the Variable-Names of the __construct'ors parameters.
 	 * @throws DefinitionNotFoundException
+	 * @throws ParameterMissingException
 	 * @return mixed
 	 */
 	public function create($className, array $arguments = array());
