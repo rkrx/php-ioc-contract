@@ -12,7 +12,7 @@ interface MethodInvoker {
 	 * Ioc\Exceptions\DefinitionNotFoundException.
 	 *
 	 * @param callable $callable
-	 * @param array $arguments
+	 * @param array $arguments Must be an array were the keys match to the Variable-Names of the __construct'ors parameters.
 	 * @throws DefinitionNotFoundException
 	 * @return mixed
 	 */
