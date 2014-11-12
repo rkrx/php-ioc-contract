@@ -54,7 +54,6 @@ $sserviceDispatcher->run();
 Now the run-method in the `ServiceDispatcher`-implementation could simply look like this:
 
 ```PHP
-<?php
 use Ioc\MethodInvoker;
 
 class ServiceDispatcher {
