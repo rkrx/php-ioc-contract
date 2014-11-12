@@ -1,6 +1,8 @@
 <?php
 namespace Ioc;
 
+use Ioc\Exceptions\DefinitionNotFoundException;
+
 interface ObjectFactory {
 	/**
 	 * The object-factory creates a class with the name $className and the __construct-arguments $arguments. If
@@ -9,6 +11,7 @@ interface ObjectFactory {
 	 *
 	 * @param string $className
 	 * @param array $arguments
+	 * @throws DefinitionNotFoundException
 	 * @return mixed
 	 */
 	public function create($className, array $arguments = array());

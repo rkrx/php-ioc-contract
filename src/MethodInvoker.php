@@ -1,6 +1,8 @@
 <?php
 namespace Ioc;
 
+use Ioc\Exceptions\DefinitionNotFoundException;
+
 interface MethodInvoker {
 	/**
 	 * Invokes the callable $callable with the arguments $arguments. If arguments were missing in $arguments, the
@@ -11,6 +13,7 @@ interface MethodInvoker {
 	 *
 	 * @param callable $callable
 	 * @param array $arguments
+	 * @throws DefinitionNotFoundException
 	 * @return mixed
 	 */
 	public function invoke($callable, array $arguments = array());
