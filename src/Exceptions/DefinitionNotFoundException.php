@@ -1,5 +1,5 @@
 <?php
 namespace Ioc\Exceptions;
 
-class DefinitionNotFoundException extends \Exception {
+class DefinitionNotFoundException extends \RuntimeException {
 }
