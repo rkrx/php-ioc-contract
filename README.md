@@ -9,9 +9,9 @@ A contract for ioc-containers
 
 This project provides a documentation for the api and the behavior of three different concerns:
 
-* ObjectFactory - an abstract factory to somehow create new object-instances from.
-* InstanceContainer - a container that returns instances that were associated to a key.
-* MethodInvoker - invoke a method, function or closure.
+* InstanceContainer - a container that returns instances associated with keys.
+* ObjectFactory - an abstract factory to create new object-instances from. E.g. used in factories to create new entities.
+* MethodInvoker - invoke a method, function or closure. E.g. used in dispatchers to start a subprogram.
 
 
 ## Motivation
