@@ -84,13 +84,13 @@ class ServiceDispatcher {
 }
 ```
 
-### ObjectFactory
-
-A `ObjectFactory` is mostly useful in common factories to create entities. For implementation details, look at the [phpdoc-blocks](https://github.com/rkrx/php-ioc-contract/blob/master/src/InstanceContainer.php).
-
 ### InstanceContainer
 
 A `InstanceContainer` is mostly useful when in subjection to a di-container only a single instance of an object should be used. This is slightly different to the use of a singleton-pattern since you can have multiple di-containers with different configurations that may inject different implementations for the provided interfaces. For implementation details, look at the [phpdoc-blocks](https://github.com/rkrx/php-ioc-contract/blob/master/src/InstanceContainer.php).
+
+### ObjectFactory
+
+A `ObjectFactory` is mostly useful in common factories to create entities. For implementation details, look at the [phpdoc-blocks](https://github.com/rkrx/php-ioc-contract/blob/master/src/ObjectFactory.php).
 
 ### MethodInvoker
 
