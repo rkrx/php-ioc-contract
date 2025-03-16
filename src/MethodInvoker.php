@@ -22,11 +22,12 @@ interface MethodInvoker {
 	 * mixed together. Scalar-types and array-types can not be determined automatically. They must be provided through
 	 * $arguments.
 	 *
-	 * @param callable $callable
-	 * @param array $arguments Must be an array were the keys match to the Variable-Names of the __construct'ors parameters.
-	 * @return mixed
-	 *@throws MissingParameterException
+	 * @template T
+	 * @param callable(mixed ...$args): T $callable
+	 * @param list<mixed> $arguments Must be an array were the keys match to the Variable-Names of the __construct'ors parameters.
+	 * @return T
+	 * @throws MissingParameterException
 	 * @throws DefinitionNotFoundException
 	 */
-	public function invoke($callable, array $arguments = array());
+	public function invoke($callable, array $arguments = []);
 }

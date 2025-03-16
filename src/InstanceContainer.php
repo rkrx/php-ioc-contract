@@ -9,9 +9,10 @@ interface InstanceContainer {
 	 * If no matching class could be found, it must throw an Ioc\Exceptions\DefinitionNotFoundException.
 	 * $className must be an fully qualified class-name.
 	 *
-	 * @param string $className
+	 * @template T of object
+	 * @param class-string<T> $className
 	 * @throws DefinitionNotFoundException
-	 * @return object
+	 * @return T
 	 */
-	public function get($className);
+	public function get(string $className);
 }
