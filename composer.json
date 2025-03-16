@@ -3,7 +3,7 @@
 	"type": "library",
 	"license": "MIT",
 	"require": {
-		"php": ">= 5.3"
+		"php": ">= 7.4"
 	},
 	"autoload": {
 		"psr-4": {
@@ -12,5 +12,11 @@
 	},
 	"suggest": {
 		"rkr/php-di-ioc-adapter": "An adapter for PHP-DI"
+	},
+	"require-dev": {
+		"phpstan/phpstan": "^2.1"
+	},
+	"scripts": {
+		"phpstan": "phpstan analyse -c phpstan.neon"
 	}
 }
